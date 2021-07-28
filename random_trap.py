@@ -31,7 +31,7 @@ trap_types = [
     "tendrils",
     "whips",
     "nets",
-    "bear traps",
+    "hunting",
     "cages",
     "beams",
     "hammers",
