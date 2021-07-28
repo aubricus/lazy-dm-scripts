@@ -574,14 +574,14 @@ surnames = [
 def generate_names(given_names, surnames, length=1):
     _given_names = copy(given_names)
     _surnames = copy(surnames)
+    memo = []
 
-    shuffle(_given_names)
-    shuffle(_surnames)
+    for _ in range(length):
+        shuffle(_given_names)
+        shuffle(_surnames)
+        memo.append((_given_names[0], _surnames[0]))
 
-    return zip(
-        _given_names[:length],
-        _surnames[:length],
-    )
+    return memo
 
 
 def main(argv, given_names, surnames):

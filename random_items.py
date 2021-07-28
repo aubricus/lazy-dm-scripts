@@ -217,29 +217,18 @@ def generate_items(items, item_origins, item_conditions, item_spell_effects, len
     _item_origins = copy(item_origins)
     _item_conditions = copy(item_conditions)
     _item_spell_effects = copy(item_spell_effects)
+    memo = []
 
-    # Guard against a length arg > than the shortest list
-    max_len = min(
-        (
-            len(_items),
-            len(_item_origins),
-            len(_item_conditions),
-            len(_item_spell_effects),
+    for _ in range(length):
+        shuffle(_items)
+        shuffle(_item_origins)
+        shuffle(_item_conditions)
+        shuffle(_item_spell_effects)
+        memo.append(
+            (_items[0], _item_origins[0], _item_conditions[0], _item_spell_effects[0])
         )
-    )
-    length = min(max_len, length)
 
-    shuffle(_items)
-    shuffle(_item_origins)
-    shuffle(_item_conditions)
-    shuffle(_item_spell_effects)
-
-    return zip(
-        _items[:length],
-        _item_origins[:length],
-        _item_conditions[:length],
-        _item_spell_effects[:length],
-    )
+    return memo
 
 
 def main(

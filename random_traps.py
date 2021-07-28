@@ -92,16 +92,16 @@ def generate_traps(trap_types, trap_flavors, trap_triggers, length=1):
     _trap_types = copy(trap_types)
     _trap_flavors = copy(trap_flavors)
     _trap_triggers = copy(trap_triggers)
+    memo = []
 
-    shuffle(_trap_types)
-    shuffle(_trap_flavors)
-    shuffle(_trap_triggers)
+    for _ in range(length):
+        shuffle(_trap_types)
+        shuffle(_trap_flavors)
+        shuffle(_trap_triggers)
 
-    return zip(
-        _trap_types[:length],
-        _trap_flavors[:length],
-        _trap_triggers[:length],
-    )
+        memo.append((_trap_types[0], _trap_flavors[0], _trap_triggers[0]))
+
+    return memo
 
 
 def main(argv, trap_types, trap_flavors, trap_triggers):

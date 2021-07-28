@@ -246,11 +246,13 @@ creatures_cr_16_24 = [
 
 def generate_monsters(creatures, length=1):
     _creatures = copy(creatures)
-    # Guard against a length arg > than the shortest list
-    length = min(len(creatures), length)
+    memo = []
 
-    shuffle(creatures)
-    return creatures[:length]
+    for _ in range(length):
+        shuffle(_creatures)
+        memo.append(_creatures[0])
+
+    return memo
 
 
 def main(argv):
