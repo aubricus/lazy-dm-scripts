@@ -17,8 +17,8 @@ These are fairly standard Python scripts that can be run in the standard fashion
 # python SCRIPT_FILE_NAME [OPTIONS...]
 # For example
 
-python random_item.py
+python random_items.py
 
 # Run --help on any of the scripts to see help text
-python random_item.py --help
+python random_items.py --help
 ```
