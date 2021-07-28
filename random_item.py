@@ -2,10 +2,12 @@
 
 
 """Return a random item.
-   Item content copyright belongs to 
-   [Sky Flourish](https://skyflourish.com) and 
-   is borrowed gracefully from the 
-   [Lazy DM Workbook](https://slyflourish.com/returnofthelazydm/).
+   
+   Monster content copyright belongs to 
+   [Sky Flourish](https://skyflourish.com).
+
+   Support Sky Flourish by purchasing the 
+   [Return of the Lazy DM](https://slyflourish.com/returnofthelazydm/).
 
 """
 
