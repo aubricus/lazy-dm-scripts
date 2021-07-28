@@ -281,9 +281,7 @@ def main(
         items = generate_items(mundane_items, *shared_args)
 
     for item, origin, condition, spell_effect in items:
-        print(
-            f"A {condition}, {origin}, {item} that can convey a single use of {spell_effect}"
-        )
+        print(f"A {condition}, {origin}, {item} that can convey {spell_effect}")
 
 
 if __name__ == "__main__":
