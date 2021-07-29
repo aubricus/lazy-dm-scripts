@@ -2,12 +2,12 @@
 
 Simple Python scripts to generate:
 
-* Random Names
-* Random Items
-* Random Traps
-* Random Monsters
+- Random Names
+- Random Items
+- Random Traps
+- Random Monsters
 
-Inspired by content from the [Return of the Lazy DM](https://slyflourish.com/returnofthelazydm/) from [Sky Flourish](https://skyflourish.com). 
+Inspired by content from the [Return of the Lazy DM](https://slyflourish.com/returnofthelazydm/) from [Sky Flourish](https://skyflourish.com).
 
 ## Usage
 
@@ -25,8 +25,8 @@ python random_items.py --help
 
 ## Support
 
-Consider this repo unsupported. 
+Consider this repo unsupported.
 
 ## Contributing
 
-If you'd like to suggest a change, for this repository and createa a pull request. 
+If you'd like to suggest a change, fork this repository and create a a pull request.
