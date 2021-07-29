@@ -14,6 +14,7 @@
 import os
 import sys
 import argparse
+import timeit
 from copy import copy
 from random import shuffle
 
@@ -240,6 +241,7 @@ def main(
     item_conditions,
     item_spell_effects,
 ):
+    start_time = timeit.default_timer()
     description = __doc__
     formatter_class = argparse.RawDescriptionHelpFormatter
     parser = argparse.ArgumentParser(
@@ -256,11 +258,12 @@ def main(
     parser.add_argument("-l", "--length", default=10, type=int)
 
     args = parser.parse_args(argv)
+    length = args.length
     item_type = args.item_type
     is_weapons = item_type == ITEM_TYPE_WEAPON
     is_armor = item_type == ITEM_TYPE_ARMOR
     is_mundane = item_type == ITEM_TYPE_MUNDANE
-    shared_args = (item_origins, item_conditions, item_spell_effects, args.length)
+    shared_args = (item_origins, item_conditions, item_spell_effects, length)
 
     if is_weapons:
         items = generate_items(weapon_items, *shared_args)
@@ -271,6 +274,9 @@ def main(
 
     for item, origin, condition, spell_effect in items:
         print(f"A {condition}, {origin}, {item} that can convey {spell_effect}")
+
+    time_elapsed = timeit.default_timer() - start_time
+    print(f"\nReturned {length} results in {time_elapsed:.4f} seconds!")
 
 
 if __name__ == "__main__":

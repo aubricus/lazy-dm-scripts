@@ -14,6 +14,7 @@
 import os
 import sys
 import argparse
+import timeit
 from copy import copy
 from random import shuffle
 
@@ -105,6 +106,7 @@ def generate_traps(trap_types, trap_flavors, trap_triggers, length=1):
 
 
 def main(argv, trap_types, trap_flavors, trap_triggers):
+    start_time = timeit.default_timer()
     description = __doc__
     formatter_class = argparse.RawDescriptionHelpFormatter
     parser = argparse.ArgumentParser(
@@ -114,10 +116,14 @@ def main(argv, trap_types, trap_flavors, trap_triggers):
     parser.add_argument("-l", "--length", default=10, type=int)
 
     args = parser.parse_args(argv)
-    traps = generate_traps(trap_types, trap_flavors, trap_triggers, args.length)
+    length = args.length
+    traps = generate_traps(trap_types, trap_flavors, trap_triggers, length)
 
     for type, flavor, trigger in traps:
         print(f"{flavor}, {type} trap triggered by {trigger}")
+
+    time_elapsed = timeit.default_timer() - start_time
+    print(f"\nReturned {length} results in {time_elapsed:.4f} seconds!")
 
 
 if __name__ == "__main__":

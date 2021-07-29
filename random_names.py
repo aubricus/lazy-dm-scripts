@@ -13,6 +13,7 @@
 import os
 import sys
 import argparse
+import timeit
 from copy import copy
 from random import shuffle
 
@@ -585,6 +586,7 @@ def generate_names(given_names, surnames, length=1):
 
 
 def main(argv, given_names, surnames):
+    start_time = timeit.default_timer()
     description = __doc__
     formatter_class = argparse.RawDescriptionHelpFormatter
     parser = argparse.ArgumentParser(
@@ -594,10 +596,14 @@ def main(argv, given_names, surnames):
     parser.add_argument("-l", "--length", default=10, type=int)
 
     args = parser.parse_args(argv)
-    names = generate_names(given_names, surnames, args.length)
+    length = args.length
+    names = generate_names(given_names, surnames, length)
 
     for given_name, surname in names:
         print(f"{given_name} {surname}")
+
+    time_elapsed = timeit.default_timer() - start_time
+    print(f"\nReturned {length} results in {time_elapsed:.4f} seconds!")
 
 
 if __name__ == "__main__":

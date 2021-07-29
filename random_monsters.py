@@ -13,6 +13,7 @@
 import os
 import sys
 import argparse
+import timeit
 from copy import copy
 from random import shuffle
 
@@ -256,6 +257,7 @@ def generate_monsters(creatures, length=1):
 
 
 def main(argv):
+    start_time = timeit.default_timer()
     description = __doc__
     formatter_class = argparse.RawDescriptionHelpFormatter
     parser = argparse.ArgumentParser(
@@ -292,6 +294,9 @@ def main(argv):
 
     for monster in monsters:
         print(monster)
+
+    time_elapsed = timeit.default_timer() - start_time
+    print(f"\nReturned {length} results in {time_elapsed:.4f} seconds!")
 
 
 if __name__ == "__main__":
